@@ -1,11 +1,12 @@
+import Feed from "@/components/Feed";
 import Header from "@/components/Header";
 import Login from "@/components/Login";
 import Sidebar from "@/components/Sidebar";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 
-export default function Home({session}) {
-  if(!session) return <Login></Login>
+export default function Home({ session }) {
+  if (!session) return <Login></Login>;
 
   return (
     <>
@@ -20,6 +21,7 @@ export default function Home({session}) {
         {/* Left Sidebar */}
         <Sidebar></Sidebar>
         {/* Feed(creat post and posts) */}
+        <Feed></Feed>
         {/* Right Sidebar */}
       </main>
     </>
@@ -29,6 +31,6 @@ export default function Home({session}) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   return {
-    props:{session},
-  }
+    props: { session },
+  };
 }
