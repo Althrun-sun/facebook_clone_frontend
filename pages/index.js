@@ -1,10 +1,12 @@
-import Header from '@/components/Header'
-import Sidebar from '@/components/Sidebar'
-import Head from 'next/head'
+import Header from "@/components/Header";
+import Login from "@/components/Login";
+import Sidebar from "@/components/Sidebar";
+import { getSession } from "next-auth/react";
+import Head from "next/head";
 
+export default function Home({session}) {
+  if(!session) return <Login></Login>
 
-
-export default function Home() {
   return (
     <>
       <Head>
@@ -14,12 +16,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <main className='flex bg-gray-100' >
+      <main className="flex bg-gray-100">
         {/* Left Sidebar */}
         <Sidebar></Sidebar>
         {/* Feed(creat post and posts) */}
         {/* Right Sidebar */}
       </main>
     </>
-  )
+  );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props:{session},
+  }
 }
