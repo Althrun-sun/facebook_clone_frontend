@@ -6,6 +6,7 @@ const nextConfig = {
       "upload.wikimedia.org",
       "static.xx.fbcdn.net",
       "platform-lookaside.fbsbx.com",
+      "grantme.ca"
     ],
   },
 };
