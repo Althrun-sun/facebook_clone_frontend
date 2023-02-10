@@ -3,11 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      "images.pexels.com",
       "upload.wikimedia.org",
-      "static.xx.fbcdn.net",
+      "avatars.dicebear.com",
+      "images.pexels.com",
       "platform-lookaside.fbsbx.com",
-      "grantme.ca",
+      "static.xx.fbcdn.net",
     ],
   },
 };
