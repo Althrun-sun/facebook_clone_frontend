@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.10",
+    "@heroicons/react": "^2.0.15",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
     "next": "12.1.0",

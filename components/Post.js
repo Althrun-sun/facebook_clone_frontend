@@ -3,20 +3,29 @@ import React from "react";
 import { FiThumbsUp } from "react-icons/fi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { RiShareForwardLine } from "react-icons/ri";
+import Options from "./Options";
 
-const Post = ({ post }) => {
+const Post = ({ post, deletePost}) => {
   return (
     <div className="flex flex-col" key={post.id}>
       <div className="bg-white mt-6 rounded-md p-4">
-        <div className="flex items-center space-x-2">
+        <div className="flex justify-around">
+        <div className="flex items-center space-x-2"> 
           <img src={post.profilePic} className="rounded-full w-10 h-10" />
           <div>
             <p className="font-medium">{post.name}</p>
             <p className="text-xs text-gray-500">{post.timeStamp}</p>
           </div>
+          
         </div>
+        <div className="">
+            <Options post={post}  deletePost={deletePost} ></Options>
+          </div>
+          </div>
+
         <p className="py-4">{post.post}</p>
       </div>
+
       {post.image != null && (
         <div className="relative h-60 md:h-96 bg-white">
           <Image src={post.image} objectFit="cover" layout="fill"></Image>
