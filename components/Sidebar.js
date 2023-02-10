@@ -7,6 +7,7 @@ import { MdOutlineOndemandVideo, MdOutlineExpandMore } from "react-icons/md";
 import { BsStopwatch } from "react-icons/bs";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import {GiCampingTent} from "react-icons/gi"
 
 const Sidebar = () => {
 
@@ -30,8 +31,9 @@ const Sidebar = () => {
       <Sidebaritem Icon={ImUsers} value="Friends" />
       
       <Sidebaritem Icon={MdGroups} value="Groups" />
-      <a href="http://ec2-54-164-84-85.compute-1.amazonaws.com:3000">
       <Sidebaritem Icon={AiOutlineShop} value="MarketPlace" />
+      <a href="http://ec2-54-164-84-85.compute-1.amazonaws.com:3000">
+      <Sidebaritem Icon={GiCampingTent} value="Campgrounds" />
       </a>
       <Sidebaritem Icon={MdOutlineOndemandVideo} value="Watch" />
       <Sidebaritem Icon={BsStopwatch} value="Memeries" />
