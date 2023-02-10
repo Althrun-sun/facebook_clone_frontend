@@ -6,12 +6,15 @@ import { IoMdPhotos } from "react-icons/io";
 import { BsEmojiSmile } from "react-icons/bs";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addPost } from "@/public/src/features/postSlice";
 
 const CreatePost = () => {
   const FACKBOOK_CLONE_ENDPOINT = "";
 
   const { data: session } = useSession();
   const [imageToPost, setImageToPost] = useState(null);
+  const dispatch = useDispatch();
   const inputRef = useRef(null);
   const hiddenFileInput = useRef(null);
   const handleClick = () => {
@@ -47,6 +50,7 @@ const CreatePost = () => {
       })
       .then((response) => {
         inputRef.current.value = "";
+        dispatch(addPost(response.data))
         removeImage();
       })
       .catch((err) => {
