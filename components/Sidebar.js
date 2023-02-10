@@ -9,6 +9,10 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
+
+   
+
+
   const { data: session, status } = useSession();
   return (
     <div className="hidden lg:inline-flex flex-col py-2 pl-2 max-w-xl lg:min-w-[320px]">
@@ -24,8 +28,11 @@ const Sidebar = () => {
         </p>
       </div>
       <Sidebaritem Icon={ImUsers} value="Friends" />
+      
       <Sidebaritem Icon={MdGroups} value="Groups" />
+      <a href="http://ec2-54-164-84-85.compute-1.amazonaws.com:3000">
       <Sidebaritem Icon={AiOutlineShop} value="MarketPlace" />
+      </a>
       <Sidebaritem Icon={MdOutlineOndemandVideo} value="Watch" />
       <Sidebaritem Icon={BsStopwatch} value="Memeries" />
       <Sidebaritem Icon={MdOutlineExpandMore} value="See more" />
