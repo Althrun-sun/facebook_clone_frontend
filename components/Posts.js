@@ -20,11 +20,6 @@ const Posts = () => {
     fetchData();
   }, []);
 
-  const removeElementById=(list, id) =>{
-    return list.filter(function(dictionary) {
-      return dictionary.id !== id;
-    });
-  }
 
   const deletePost = (e, id) => {
     e.preventDefault();

@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
 
 export default function Options({ post, deletePost }) {
   return (
@@ -41,22 +43,24 @@ export default function Options({ post, deletePost }) {
               )}
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Edit
-                </a>
+              {({ active }) => (             
+                <Link href={`/edit?data=${JSON.stringify(post.id)}`}>
+                  <a
+                    className={classNames(
+                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    Edit
+                  </a>
+                </Link>
+                // </a>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <a
-                  onClick={(e,id) => deletePost(e,post.id)}
+                  onClick={(e, id) => deletePost(e, post.id)}
                   href="#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
