@@ -5,23 +5,26 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import { RiShareForwardLine } from "react-icons/ri";
 import Options from "./Options";
 
-const Post = ({ post, deletePost}) => {
+const Post = ({ post, deletePost }) => {
   return (
     <div className="flex flex-col" key={post.id}>
       <div className="bg-white mt-6 rounded-md p-4">
-        <div className="flex justify-around">
-        <div className="flex items-center space-x-2"> 
-          <img src={post.profilePic} className="rounded-full w-10 h-10" />
-          <div>
-            <p className="font-medium">{post.name}</p>
-            <p className="text-xs text-gray-500">{post.timeStamp}</p>
+        <div className="flex justify-between">
+          <div className="flex items-center space-x-2 w-full">
+            <img src={post.profilePic} className="rounded-full w-10 h-10" />
+            <div>
+              <p className="font-medium">{post.name}</p>
+              <p className="text-xs text-gray-500">{post.timeStamp}</p>
+            </div>
           </div>
-          
+          <div className="">
+            <Options
+              className="justify-end"
+              post={post}
+              deletePost={deletePost}
+            ></Options>
+          </div>
         </div>
-        <div className="">
-            <Options post={post}  deletePost={deletePost} ></Options>
-          </div>
-          </div>
 
         <p className="py-4">{post.post}</p>
       </div>
