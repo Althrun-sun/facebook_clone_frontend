@@ -7,7 +7,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 export default function Options({ post, deletePost }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -43,25 +42,25 @@ export default function Options({ post, deletePost }) {
               )}
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (             
-                <Link href={`/edit?data=${JSON.stringify(post.id)}`}>
-                  <a
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
-                    )}
-                  >
-                    Edit
-                  </a>
-                </Link>
-                // </a>
+              {({ active }) => (
+                <a
+                  href={`/edit?data=${JSON.stringify(post.id)}`}
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm"
+                  )}
+                >
+                  Edit
+                  {/* <Link href={`/edit?data=${JSON.stringify(post.id)}`}> */}
+                    {/* Edit
+                  </Link> */}
+                </a>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <a
                   onClick={(e, id) => deletePost(e, post.id)}
-                  href="#"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
